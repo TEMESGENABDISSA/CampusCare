@@ -5,6 +5,7 @@ import Doctors from './doctors/Doctors'
 import DoctorDetail from './doctors/DoctorDetail'
 import Booking from './booking/Booking'
 import Confirmation from './booking/Confirmation'
+import AppointmentHistory from './appointments/AppointmentHistory'
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path="/doctors/:id" element={<DoctorDetail />} />
         <Route path="/doctors/:id/book" element={<Booking />} />
         <Route path="/confirmation" element={<Confirmation />} />
+        <Route path="/appointments" element={<AppointmentHistory />} />
       </Routes>
     </Layout>
   )
