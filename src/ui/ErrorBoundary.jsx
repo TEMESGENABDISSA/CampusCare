@@ -23,10 +23,16 @@ class ErrorBoundary extends Component {
     if (this.state.hasError) {
       return (
         <div className="error-boundary">
-          <h1 className="error-heading">Something went wrong.</h1>
-          <button onClick={this.handleReload} className="reload-button">
-            Reload Page
-          </button>
+          <div className="error-container">
+            <div className="error-icon" aria-hidden="true">⚠️</div>
+            <h1 className="error-title">Something went wrong</h1>
+            <p className="error-description">
+              An unexpected error occurred. Please try reloading the page.
+            </p>
+            <button onClick={this.handleReload} className="button reload-button">
+              Reload Page
+            </button>
+          </div>
         </div>
       )
     }

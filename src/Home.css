@@ -299,6 +299,18 @@
 }
 
 @media (max-width: 480px) {
+  .hero {
+    padding: var(--space-2xl) var(--space-md);
+  }
+
+  .hero-title {
+    font-size: 32px;
+  }
+
+  .hero-description {
+    font-size: 15px;
+  }
+
   .hero-actions {
     flex-direction: column;
   }
@@ -306,5 +318,64 @@
   .hero-button {
     width: 100%;
     text-align: center;
+  }
+
+  .visual-card {
+    width: 200px;
+    height: 200px;
+  }
+
+  .visual-icon {
+    font-size: 60px;
+  }
+
+  .visual-circle.small {
+    width: 50px;
+    height: 50px;
+    top: 20px;
+    right: 20px;
+  }
+
+  .visual-circle.smaller {
+    width: 30px;
+    height: 30px;
+    bottom: 30px;
+    left: 30px;
+  }
+
+  .features {
+    padding: var(--space-2xl) var(--space-md);
+  }
+
+  .features-grid {
+    gap: var(--space-lg);
+  }
+
+  .feature-card {
+    padding: var(--space-lg);
+  }
+
+  .feature-icon {
+    font-size: 36px;
+  }
+
+  .feature-title {
+    font-size: 18px;
+  }
+
+  .feature-description {
+    font-size: 14px;
+  }
+
+  .trust {
+    padding: var(--space-2xl) var(--space-md);
+  }
+
+  .trust-title {
+    font-size: 20px;
+  }
+
+  .trust-description {
+    font-size: 14px;
   }
 }

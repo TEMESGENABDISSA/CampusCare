@@ -47,9 +47,6 @@
   margin: 0 0 var(--space-md) 0;
   color: var(--text-primary);
   font-weight: 700;
-  @media (max-width: 768px) {
-    font-size: 28px;
-  }
 }
 
 .confirmation-message {
@@ -101,35 +98,7 @@
 
 .view-appointments-button,
 .find-doctor-button {
-  font-size: 16px;
-  font-weight: 600;
-  padding: var(--space-md) var(--space-xl);
-  border-radius: var(--radius-lg);
-  text-decoration: none;
-  text-align: center;
-  transition: all 0.2s ease;
-}
-
-.view-appointments-button {
-  color: var(--bg-card);
-  background: var(--primary);
-}
-
-.view-appointments-button:hover {
-  background: var(--primary-dark);
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-md);
-}
-
-.find-doctor-button {
-  color: var(--text-secondary);
-  background: var(--bg-body);
-  border: 1px solid var(--border);
-}
-
-.find-doctor-button:hover {
-  background: var(--border-light);
-  color: var(--text-primary);
+  width: 100%;
 }
 
 .error-container {
@@ -161,20 +130,42 @@
   line-height: 1.5;
 }
 
-.error-button {
-  display: inline-block;
-  font-size: 16px;
-  font-weight: 600;
-  padding: var(--space-md) var(--space-xl);
-  border-radius: var(--radius-lg);
-  color: var(--bg-card);
-  background: var(--primary);
-  text-decoration: none;
-  transition: all 0.2s ease;
+@media (max-width: 768px) {
+  .confirmation-card,
+  .error-container {
+    padding: var(--space-2xl) var(--space-lg);
+  }
+
+  .confirmation-heading {
+    font-size: 28px;
+  }
+
+  .success-icon {
+    width: 64px;
+    height: 64px;
+  }
+
+  .error-icon {
+    font-size: 48px;
+  }
+
+  .error-title {
+    font-size: 24px;
+  }
 }
 
-.error-button:hover {
-  background: var(--primary-dark);
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-md);
+@media (max-width: 480px) {
+  .confirmation {
+    padding: var(--space-lg) var(--space-md);
+  }
+
+  .confirmation-card,
+  .error-container {
+    padding: var(--space-xl) var(--space-md);
+  }
+
+  .detail-row {
+    flex-direction: column;
+    gap: var(--space-xs);
+  }
 }

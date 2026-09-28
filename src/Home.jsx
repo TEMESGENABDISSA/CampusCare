@@ -24,7 +24,7 @@ function Home() {
               </Link>
             </div>
           </div>
-          <div className="hero-visual">
+          <div className="hero-visual" aria-hidden="true">
             <div className="visual-card">
               <div className="visual-icon">✚</div>
               <div className="visual-circle"></div>
@@ -40,21 +40,21 @@ function Home() {
         <h2 className="features-heading">How It Works</h2>
         <div className="features-grid">
           <div className="feature-card">
-            <div className="feature-icon">🔍</div>
+            <div className="feature-icon" aria-hidden="true">🔍</div>
             <h3 className="feature-title">Find Doctors</h3>
             <p className="feature-description">
               Browse doctors by department and specialty.
             </p>
           </div>
           <div className="feature-card">
-            <div className="feature-icon">📅</div>
+            <div className="feature-icon" aria-hidden="true">📅</div>
             <h3 className="feature-title">Easy Booking</h3>
             <p className="feature-description">
               Choose an available appointment time that works for you.
             </p>
           </div>
           <div className="feature-card">
-            <div className="feature-icon">📋</div>
+            <div className="feature-icon" aria-hidden="true">📋</div>
             <h3 className="feature-title">Stay Organized</h3>
             <p className="feature-description">
               Keep track of your upcoming appointments.

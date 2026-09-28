@@ -44,7 +44,7 @@ function SignIn() {
             />
           </div>
 
-          <button type="submit" className="signin-button">
+          <button type="submit" className="button signin-button">
             Sign In
           </button>
         </form>

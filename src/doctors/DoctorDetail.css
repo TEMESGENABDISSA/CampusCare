@@ -37,24 +37,6 @@
   line-height: 1.5;
 }
 
-.not-found-button {
-  display: inline-block;
-  font-size: 16px;
-  font-weight: 600;
-  padding: var(--space-md) var(--space-xl);
-  border-radius: var(--radius-lg);
-  color: var(--bg-card);
-  background: var(--primary);
-  text-decoration: none;
-  transition: all 0.2s ease;
-}
-
-.not-found-button:hover {
-  background: var(--primary-dark);
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-md);
-}
-
 /* Profile Header */
 .profile-header {
   display: grid;
@@ -222,21 +204,6 @@
 .book-appointment-button {
   display: block;
   width: 100%;
-  font-size: 16px;
-  font-weight: 600;
-  padding: var(--space-md) var(--space-xl);
-  border-radius: var(--radius-lg);
-  color: var(--bg-card);
-  background: var(--primary);
-  text-decoration: none;
-  text-align: center;
-  transition: all 0.2s ease;
-}
-
-.book-appointment-button:hover {
-  background: var(--primary-dark);
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-md);
 }
 
 /* Why Choose Section */
@@ -326,5 +293,65 @@
 
   .not-found-container {
     padding: var(--space-2xl) var(--space-lg);
+  }
+
+  .time-card {
+    padding: var(--space-md);
+  }
+
+  .time-icon {
+    font-size: 32px;
+  }
+
+  .time-text {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 480px) {
+  .doctor-detail {
+    padding: var(--space-lg) var(--space-md);
+  }
+
+  .profile-header,
+  .appointment-section,
+  .why-choose-section {
+    padding: var(--space-lg);
+  }
+
+  .profile-image {
+    max-width: 250px;
+  }
+
+  .profile-name {
+    font-size: 24px;
+  }
+
+  .section-title {
+    font-size: 18px;
+  }
+
+  .why-icon {
+    font-size: 36px;
+  }
+
+  .why-title {
+    font-size: 16px;
+  }
+
+  .why-description {
+    font-size: 13px;
+  }
+
+  .not-found-container {
+    padding: var(--space-xl) var(--space-md);
+  }
+
+  .not-found-icon {
+    font-size: 48px;
+  }
+
+  .not-found-title {
+    font-size: 24px;
   }
 }

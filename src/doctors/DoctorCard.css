@@ -143,3 +143,22 @@
 .view-profile-button:focus:not(:focus-visible) {
   outline: none;
 }
+
+@media (max-width: 480px) {
+  .doctor-name {
+    font-size: 16px;
+  }
+
+  .doctor-specialty {
+    font-size: 13px;
+  }
+
+  .doctor-experience {
+    font-size: 12px;
+  }
+
+  .view-profile-button {
+    font-size: 13px;
+    padding: var(--space-xs) var(--space-md);
+  }
+}

@@ -43,19 +43,7 @@
 
 .clear-filter-button {
   font-size: 14px;
-  font-weight: 600;
   padding: var(--space-sm) var(--space-lg);
-  border-radius: var(--radius-md);
-  color: var(--text-secondary);
-  background: var(--bg-body);
-  border: 1px solid var(--border);
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.clear-filter-button:hover {
-  background: var(--border-light);
-  color: var(--text-primary);
 }
 
 /* Results Indicator */
@@ -79,7 +67,6 @@
   border: 1px solid var(--border-light);
 }
 
-.loading-state,
 .error-state {
   display: flex;
   flex-direction: column;
@@ -87,23 +74,22 @@
   gap: var(--space-md);
 }
 
-.loading-spinner {
-  width: 40px;
-  height: 40px;
-  border: 3px solid var(--border-light);
-  border-top-color: var(--primary);
-  border-radius: var(--radius-full);
-  animation: spin 1s linear infinite;
-}
-
-@keyframes spin {
-  to {
-    transform: rotate(360deg);
-  }
-}
-
 .error-icon {
   font-size: 48px;
+}
+
+.error-title {
+  font-size: 20px;
+  margin: 0 0 var(--space-sm) 0;
+  color: var(--text-primary);
+  font-weight: 700;
+}
+
+.error-description {
+  font-size: 16px;
+  color: var(--text-secondary);
+  margin: 0;
+  line-height: 1.5;
 }
 
 /* Empty State */
@@ -137,26 +123,36 @@
   line-height: 1.5;
 }
 
-.empty-action-button {
-  font-size: 16px;
-  font-weight: 600;
-  padding: var(--space-md) var(--space-xl);
-  border-radius: var(--radius-lg);
-  color: var(--bg-card);
-  background: var(--primary);
-  border: none;
-  cursor: pointer;
-  transition: all 0.2s ease;
+.doctors-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-lg);
 }
 
-.empty-action-button:hover {
-  background: var(--primary-dark);
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-md);
+.skeleton-card {
+  pointer-events: none;
+}
+
+.skeleton-card .doctor-image-container {
+  border-bottom: 1px solid var(--border-light);
+}
+
+.skeleton-card .doctor-info {
+  padding: var(--space-lg);
 }
 
 /* Responsive */
+@media (max-width: 1024px) {
+  .doctors-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
 @media (max-width: 768px) {
+  .doctors-list {
+    grid-template-columns: 1fr;
+  }
+
   .doctors-filter-section {
     flex-direction: column;
   }
@@ -175,5 +171,55 @@
 
   .empty-title {
     font-size: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .doctors-page {
+    padding: var(--space-lg) var(--space-md);
+  }
+
+  .doctors-heading {
+    font-size: 28px;
+  }
+
+  .doctors-subtitle {
+    font-size: 15px;
+  }
+
+  .doctors-filter-section {
+    padding: var(--space-md);
+  }
+
+  .empty-state {
+    padding: var(--space-xl) var(--space-md);
+  }
+
+  .empty-icon {
+    font-size: 48px;
+  }
+
+  .empty-title {
+    font-size: 18px;
+  }
+
+  .empty-description {
+    font-size: 14px;
+  }
+
+  .state-message {
+    padding: var(--space-xl) var(--space-md);
+  }
+
+  .error-icon {
+    font-size: 48px;
+  }
+
+  .error-title {
+    font-size: 18px;
+  }
+
+  .error-description {
+    font-size: 14px;
   }
 }

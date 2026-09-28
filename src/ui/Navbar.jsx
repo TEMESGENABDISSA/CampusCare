@@ -19,8 +19,8 @@ function Navbar() {
   return (
     <nav className="navbar">
       <div className="navbar-container">
-        <Link to="/" className="navbar-brand" onClick={closeMenu}>
-          <span className="brand-icon">✚</span>
+        <Link to="/" className="navbar-brand" onClick={closeMenu} aria-label="CampusCare Home">
+          <span className="brand-icon" aria-hidden="true">✚</span>
           <span className="brand-text">CampusCare</span>
         </Link>
         
@@ -41,6 +41,7 @@ function Navbar() {
               to="/" 
               className={isActive('/') ? 'active' : ''}
               onClick={closeMenu}
+              aria-current={isActive('/') ? 'page' : undefined}
             >
               Home
             </Link>
@@ -50,6 +51,7 @@ function Navbar() {
               to="/doctors" 
               className={isActive('/doctors') ? 'active' : ''}
               onClick={closeMenu}
+              aria-current={isActive('/doctors') ? 'page' : undefined}
             >
               Doctors
             </Link>
@@ -59,6 +61,7 @@ function Navbar() {
               to="/appointments" 
               className={isActive('/appointments') ? 'active' : ''}
               onClick={closeMenu}
+              aria-current={isActive('/appointments') ? 'page' : undefined}
             >
               Appointments
             </Link>

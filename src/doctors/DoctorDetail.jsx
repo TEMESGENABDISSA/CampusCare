@@ -10,12 +10,12 @@ function DoctorDetail() {
     return (
       <div className="doctor-detail">
         <div className="not-found-container">
-          <div className="not-found-icon">👨‍⚕️</div>
-          <h1 className="not-found-title">Doctor Not Found</h1>
+          <div className="not-found-icon" aria-hidden="true">👨‍⚕️</div>
+          <h1 className="not-found-title">Doctor not found</h1>
           <p className="not-found-description">
-            The doctor profile you're looking for doesn't exist or has been removed.
+            The doctor you're looking for could not be found.
           </p>
-          <Link to="/doctors" className="not-found-button">
+          <Link to="/doctors" className="button not-found-button">
             Browse All Doctors
           </Link>
         </div>
@@ -35,7 +35,7 @@ function DoctorDetail() {
               className="profile-image"
             />
             <div className="availability-status">
-              <span className="status-dot"></span>
+              <span className="status-dot" aria-hidden="true"></span>
               Available
             </div>
           </div>
@@ -66,14 +66,15 @@ function DoctorDetail() {
                 to={`/doctors/${doctor.id}/book`}
                 className="time-card"
                 state={{ selectedTime: time }}
+                aria-label={`Book appointment for ${time}`}
               >
-                <div className="time-icon">📅</div>
+                <div className="time-icon" aria-hidden="true">📅</div>
                 <span className="time-text">{time}</span>
               </Link>
             ))}
           </div>
           
-          <Link to={`/doctors/${doctor.id}/book`} className="book-appointment-button">
+          <Link to={`/doctors/${doctor.id}/book`} className="button book-appointment-button">
             Book Appointment
           </Link>
         </div>
@@ -83,21 +84,21 @@ function DoctorDetail() {
           <h2 className="section-title">Why Choose This Doctor</h2>
           <div className="why-choose-grid">
             <div className="why-choose-item">
-              <div className="why-icon">🎓</div>
+              <div className="why-icon" aria-hidden="true">🎓</div>
               <h3 className="why-title">Specialized Expertise</h3>
               <p className="why-description">
                 {doctor.specialty} specialist with focused knowledge in {doctor.department}.
               </p>
             </div>
             <div className="why-choose-item">
-              <div className="why-icon">⏱️</div>
+              <div className="why-icon" aria-hidden="true">⏱️</div>
               <h3 className="why-title">Experienced Professional</h3>
               <p className="why-description">
                 {doctor.experience} of clinical experience treating patients.
               </p>
             </div>
             <div className="why-choose-item">
-              <div className="why-icon">🏫</div>
+              <div className="why-icon" aria-hidden="true">🏫</div>
               <h3 className="why-title">Campus Healthcare</h3>
               <p className="why-description">
                 Part of the university health services team, dedicated to student wellness.

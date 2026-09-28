@@ -11,7 +11,7 @@ function DoctorCard({ doctor }) {
           className="doctor-image"
         />
         <div className="availability-badge">
-          <span className="availability-dot"></span>
+          <span className="availability-dot" aria-hidden="true"></span>
           Available
         </div>
       </div>
@@ -25,7 +25,6 @@ function DoctorCard({ doctor }) {
         <Link 
           to={`/doctors/${doctor.id}`} 
           className="view-profile-button"
-          tabIndex={0}
         >
           View Profile
         </Link>

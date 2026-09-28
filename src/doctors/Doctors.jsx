@@ -35,9 +35,21 @@ function Doctors() {
             Browse our campus clinic specialists and choose a doctor who fits your needs.
           </p>
         </div>
-        <div className="state-message loading-state">
-          <div className="loading-spinner"></div>
-          <p>Loading doctors...</p>
+        <div className="doctors-list">
+          {[1, 2, 3].map((i) => (
+            <div key={i} className="doctor-card skeleton-card">
+              <div className="doctor-image-container">
+                <div className="skeleton skeleton-image"></div>
+              </div>
+              <div className="doctor-info">
+                <div className="skeleton skeleton-text medium"></div>
+                <div className="skeleton skeleton-text short"></div>
+                <div className="skeleton skeleton-text long"></div>
+                <div className="skeleton skeleton-text short"></div>
+                <div className="skeleton skeleton-button"></div>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     )
@@ -53,8 +65,9 @@ function Doctors() {
           </p>
         </div>
         <div className="state-message error-state">
-          <div className="error-icon">⚠️</div>
-          <p>Unable to load doctors. Please try again later.</p>
+          <div className="error-icon" aria-hidden="true">⚠️</div>
+          <h3 className="error-title">Unable to load doctors</h3>
+          <p className="error-description">Please try again later.</p>
         </div>
       </div>
     )
@@ -76,7 +89,7 @@ function Doctors() {
         />
         {selectedDepartment !== 'All Departments' && (
           <button 
-            className="clear-filter-button"
+            className="button button-secondary clear-filter-button"
             onClick={handleClearFilter}
           >
             Clear Filter
@@ -86,14 +99,14 @@ function Doctors() {
 
       {filteredDoctors.length === 0 ? (
         <div className="empty-state">
-          <div className="empty-icon">🔍</div>
-          <h3 className="empty-title">No Doctors Found</h3>
+          <div className="empty-icon" aria-hidden="true">🔍</div>
+          <h3 className="empty-title">No doctors found</h3>
           <p className="empty-description">
             No doctors are available in the {selectedDepartment} department.
-            Try selecting a different department or clear the filter.
+            Try selecting another department.
           </p>
           <button 
-            className="empty-action-button"
+            className="button empty-action-button"
             onClick={handleClearFilter}
           >
             Clear Filter

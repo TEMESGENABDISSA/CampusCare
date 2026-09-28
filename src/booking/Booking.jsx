@@ -88,13 +88,13 @@ function Booking() {
     return (
       <div className="booking">
         <div className="not-found-container">
-          <div className="not-found-icon">📅</div>
-          <h1 className="not-found-title">Doctor Not Found</h1>
+          <div className="not-found-icon" aria-hidden="true">📅</div>
+          <h1 className="not-found-title">Doctor not found</h1>
           <p className="not-found-description">
-            The doctor you're trying to book with doesn't exist.
+            The doctor you're trying to book with could not be found.
           </p>
-          <Link to="/doctors" className="not-found-button">
-            Browse Doctors
+          <Link to="/doctors" className="button error-button">
+            Find a Doctor
           </Link>
         </div>
       </div>
@@ -158,8 +158,10 @@ function Booking() {
               }}
               placeholder="Enter your full name"
               className={errors.fullName ? 'error' : ''}
+              aria-invalid={errors.fullName ? 'true' : 'false'}
+              aria-describedby={errors.fullName ? 'fullName-error' : undefined}
             />
-            {errors.fullName && <span className="error-message">{errors.fullName}</span>}
+            {errors.fullName && <span id="fullName-error" className="error-message" role="alert" aria-live="polite">{errors.fullName}</span>}
           </div>
 
           <div className="form-group">
@@ -176,8 +178,10 @@ function Booking() {
               }}
               placeholder="your.email@example.com"
               className={errors.email ? 'error' : ''}
+              aria-invalid={errors.email ? 'true' : 'false'}
+              aria-describedby={errors.email ? 'email-error' : undefined}
             />
-            {errors.email && <span className="error-message">{errors.email}</span>}
+            {errors.email && <span id="email-error" className="error-message" role="alert" aria-live="polite">{errors.email}</span>}
           </div>
 
           <div className="form-group">
@@ -194,8 +198,10 @@ function Booking() {
               }}
               placeholder="Enter your phone number"
               className={errors.phoneNumber ? 'error' : ''}
+              aria-invalid={errors.phoneNumber ? 'true' : 'false'}
+              aria-describedby={errors.phoneNumber ? 'phoneNumber-error' : undefined}
             />
-            {errors.phoneNumber && <span className="error-message">{errors.phoneNumber}</span>}
+            {errors.phoneNumber && <span id="phoneNumber-error" className="error-message" role="alert" aria-live="polite">{errors.phoneNumber}</span>}
           </div>
 
           <div className="form-group">
@@ -211,8 +217,10 @@ function Booking() {
                 setErrors({ ...errors, appointmentDate: '' })
               }}
               className={errors.appointmentDate ? 'error' : ''}
+              aria-invalid={errors.appointmentDate ? 'true' : 'false'}
+              aria-describedby={errors.appointmentDate ? 'appointmentDate-error' : undefined}
             />
-            {errors.appointmentDate && <span className="error-message">{errors.appointmentDate}</span>}
+            {errors.appointmentDate && <span id="appointmentDate-error" className="error-message" role="alert" aria-live="polite">{errors.appointmentDate}</span>}
           </div>
 
           <div className="form-group">
@@ -228,8 +236,10 @@ function Booking() {
                 setErrors({ ...errors, appointmentTime: '' })
               }}
               className={errors.appointmentTime ? 'error' : ''}
+              aria-invalid={errors.appointmentTime ? 'true' : 'false'}
+              aria-describedby={errors.appointmentTime ? 'appointmentTime-error' : undefined}
             />
-            {errors.appointmentTime && <span className="error-message">{errors.appointmentTime}</span>}
+            {errors.appointmentTime && <span id="appointmentTime-error" className="error-message" role="alert" aria-live="polite">{errors.appointmentTime}</span>}
           </div>
 
           <div className="form-group">
@@ -246,15 +256,17 @@ function Booking() {
               rows={4}
               placeholder="Please describe the reason for your visit"
               className={errors.reason ? 'error' : ''}
+              aria-invalid={errors.reason ? 'true' : 'false'}
+              aria-describedby={errors.reason ? 'reason-error' : undefined}
             />
-            {errors.reason && <span className="error-message">{errors.reason}</span>}
+            {errors.reason && <span id="reason-error" className="error-message" role="alert" aria-live="polite">{errors.reason}</span>}
           </div>
 
           <div className="form-actions">
-            <button type="submit" className="submit-button">
+            <button type="submit" className="button submit-button">
               Confirm Appointment
             </button>
-            <Link to={`/doctors/${id}`} className="cancel-button">
+            <Link to={`/doctors/${id}`} className="button button-secondary cancel-button">
               Cancel
             </Link>
           </div>

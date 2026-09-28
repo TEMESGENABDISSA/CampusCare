@@ -9,12 +9,12 @@ function Confirmation() {
     return (
       <div className="confirmation">
         <div className="error-container">
-          <div className="error-icon">⚠️</div>
-          <h1 className="error-title">No Appointment Found</h1>
+          <div className="error-icon" aria-hidden="true">⚠️</div>
+          <h1 className="error-title">No appointment found</h1>
           <p className="error-description">
             We couldn't find your appointment information.
           </p>
-          <Link to="/doctors" className="error-button">
+          <Link to="/doctors" className="button error-button">
             Find a Doctor
           </Link>
         </div>
@@ -25,7 +25,7 @@ function Confirmation() {
   return (
     <div className="confirmation">
       <div className="confirmation-card">
-        <div className="success-icon">
+        <div className="success-icon" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <circle cx="12" cy="12" r="12" fill="currentColor"/>
             <path d="M8 12L11 15L16 9" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
@@ -36,7 +36,7 @@ function Confirmation() {
           Your appointment has been successfully booked.
         </p>
 
-        <div className="appointment-details">
+        <div className="appointment-details" role="region" aria-label="Appointment details">
           <div className="detail-row">
             <span className="detail-label">Doctor</span>
             <span className="detail-value">{appointment.doctorName}</span>
@@ -59,10 +59,10 @@ function Confirmation() {
         </div>
 
         <div className="confirmation-actions">
-          <Link to="/appointments" className="view-appointments-button">
+          <Link to="/appointments" className="button view-appointments-button">
             View My Appointments
           </Link>
-          <Link to="/doctors" className="find-doctor-button">
+          <Link to="/doctors" className="button button-secondary find-doctor-button">
             Find Another Doctor
           </Link>
         </div>

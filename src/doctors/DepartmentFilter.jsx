@@ -16,6 +16,7 @@ function DepartmentFilter({ selectedDepartment, onDepartmentChange }) {
           key={department}
           className={`filter-button ${selectedDepartment === department ? 'active' : ''}`}
           onClick={() => onDepartmentChange(department)}
+          aria-pressed={selectedDepartment === department}
         >
           {department}
         </button>
