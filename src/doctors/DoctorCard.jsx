@@ -15,13 +15,21 @@ function DoctorCard({ doctor }) {
           Available
         </div>
       </div>
-      <h3 className="doctor-name">{doctor.name}</h3>
-      <p className="doctor-department">{doctor.department}</p>
-      <p className="doctor-specialty">{doctor.specialty}</p>
-      <p className="doctor-experience">{doctor.experience}</p>
-      <Link to={`/doctors/${doctor.id}`} className="view-profile-button">
-        View Profile
-      </Link>
+      
+      <div className="doctor-info">
+        <h3 className="doctor-name">Dr. {doctor.name}</h3>
+        <p className="doctor-department">{doctor.department}</p>
+        <p className="doctor-specialty">{doctor.specialty}</p>
+        <p className="doctor-experience">{doctor.experience}</p>
+        
+        <Link 
+          to={`/doctors/${doctor.id}`} 
+          className="view-profile-button"
+          tabIndex={0}
+        >
+          View Profile
+        </Link>
+      </div>
     </div>
   )
 }
