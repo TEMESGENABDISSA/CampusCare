@@ -66,6 +66,16 @@ body {
   box-sizing: border-box;
 }
 
+.layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main-content {
+  flex: 1;
+}
+
 h1,
 h2 {
   font-family: var(--heading);
