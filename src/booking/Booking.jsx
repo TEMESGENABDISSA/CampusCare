@@ -87,116 +87,180 @@ function Booking() {
   if (!doctor) {
     return (
       <div className="booking">
-        <p className="not-found">Doctor Not Found</p>
+        <div className="not-found-container">
+          <div className="not-found-icon">📅</div>
+          <h1 className="not-found-title">Doctor Not Found</h1>
+          <p className="not-found-description">
+            The doctor you're trying to book with doesn't exist.
+          </p>
+          <Link to="/doctors" className="not-found-button">
+            Browse Doctors
+          </Link>
+        </div>
       </div>
     )
   }
 
   return (
     <div className="booking">
-      <h1 className="booking-heading">Book Appointment</h1>
-      <p className="booking-subtitle">with {doctor.name}</p>
-
-      <form className="booking-form" onSubmit={handleSubmit}>
-        <div className="form-group">
-          <label htmlFor="fullName">Full Name</label>
-          <input
-            type="text"
-            id="fullName"
-            value={fullName}
-            onChange={(e) => {
-              setFullName(e.target.value)
-              setErrors({ ...errors, fullName: '' })
-            }}
-            className={errors.fullName ? 'error' : ''}
-          />
-          {errors.fullName && <span className="error-message">{errors.fullName}</span>}
+      <div className="booking-container">
+        {/* Appointment Summary */}
+        <div className="appointment-summary">
+          <h2 className="summary-title">Appointment Summary</h2>
+          <div className="summary-card">
+            <img
+              src={doctor.image}
+              alt={doctor.name}
+              className="summary-image"
+            />
+            <div className="summary-info">
+              <h3 className="summary-doctor-name">{doctor.name}</h3>
+              <p className="summary-department">{doctor.department}</p>
+              <p className="summary-specialty">{doctor.specialty}</p>
+            </div>
+          </div>
+          
+          {(appointmentDate || appointmentTime) && (
+            <div className="summary-details">
+              {appointmentDate && (
+                <div className="summary-detail-item">
+                  <span className="detail-label">Date</span>
+                  <span className="detail-value">{appointmentDate}</span>
+                </div>
+              )}
+              {appointmentTime && (
+                <div className="summary-detail-item">
+                  <span className="detail-label">Time</span>
+                  <span className="detail-value">{appointmentTime}</span>
+                </div>
+              )}
+            </div>
+          )}
         </div>
 
-        <div className="form-group">
-          <label htmlFor="email">Email</label>
-          <input
-            type="email"
-            id="email"
-            value={email}
-            onChange={(e) => {
-              setEmail(e.target.value)
-              setErrors({ ...errors, email: '' })
-            }}
-            className={errors.email ? 'error' : ''}
-          />
-          {errors.email && <span className="error-message">{errors.email}</span>}
-        </div>
+        {/* Booking Form */}
+        <div className="booking-form-section">
+          <h1 className="booking-heading">Book Appointment</h1>
+          <p className="booking-subtitle">Complete the form below to schedule your appointment</p>
 
-        <div className="form-group">
-          <label htmlFor="phoneNumber">Phone Number</label>
-          <input
-            type="tel"
-            id="phoneNumber"
-            value={phoneNumber}
-            onChange={(e) => {
-              setPhoneNumber(e.target.value)
-              setErrors({ ...errors, phoneNumber: '' })
-            }}
-            className={errors.phoneNumber ? 'error' : ''}
-          />
-          {errors.phoneNumber && <span className="error-message">{errors.phoneNumber}</span>}
-        </div>
+          <form className="booking-form" onSubmit={handleSubmit}>
+          <div className="form-group">
+            <label htmlFor="fullName">
+              Full Name <span className="required">*</span>
+            </label>
+            <input
+              type="text"
+              id="fullName"
+              value={fullName}
+              onChange={(e) => {
+                setFullName(e.target.value)
+                setErrors({ ...errors, fullName: '' })
+              }}
+              placeholder="Enter your full name"
+              className={errors.fullName ? 'error' : ''}
+            />
+            {errors.fullName && <span className="error-message">{errors.fullName}</span>}
+          </div>
 
-        <div className="form-group">
-          <label htmlFor="appointmentDate">Appointment Date</label>
-          <input
-            type="date"
-            id="appointmentDate"
-            value={appointmentDate}
-            onChange={(e) => {
-              setAppointmentDate(e.target.value)
-              setErrors({ ...errors, appointmentDate: '' })
-            }}
-            className={errors.appointmentDate ? 'error' : ''}
-          />
-          {errors.appointmentDate && <span className="error-message">{errors.appointmentDate}</span>}
-        </div>
+          <div className="form-group">
+            <label htmlFor="email">
+              Email <span className="required">*</span>
+            </label>
+            <input
+              type="email"
+              id="email"
+              value={email}
+              onChange={(e) => {
+                setEmail(e.target.value)
+                setErrors({ ...errors, email: '' })
+              }}
+              placeholder="your.email@example.com"
+              className={errors.email ? 'error' : ''}
+            />
+            {errors.email && <span className="error-message">{errors.email}</span>}
+          </div>
 
-        <div className="form-group">
-          <label htmlFor="appointmentTime">Appointment Time</label>
-          <input
-            type="time"
-            id="appointmentTime"
-            value={appointmentTime}
-            onChange={(e) => {
-              setAppointmentTime(e.target.value)
-              setErrors({ ...errors, appointmentTime: '' })
-            }}
-            className={errors.appointmentTime ? 'error' : ''}
-          />
-          {errors.appointmentTime && <span className="error-message">{errors.appointmentTime}</span>}
-        </div>
+          <div className="form-group">
+            <label htmlFor="phoneNumber">
+              Phone Number <span className="required">*</span>
+            </label>
+            <input
+              type="tel"
+              id="phoneNumber"
+              value={phoneNumber}
+              onChange={(e) => {
+                setPhoneNumber(e.target.value)
+                setErrors({ ...errors, phoneNumber: '' })
+              }}
+              placeholder="Enter your phone number"
+              className={errors.phoneNumber ? 'error' : ''}
+            />
+            {errors.phoneNumber && <span className="error-message">{errors.phoneNumber}</span>}
+          </div>
 
-        <div className="form-group">
-          <label htmlFor="reason">Reason for Visit</label>
-          <textarea
-            id="reason"
-            value={reason}
-            onChange={(e) => {
-              setReason(e.target.value)
-              setErrors({ ...errors, reason: '' })
-            }}
-            rows={4}
-            className={errors.reason ? 'error' : ''}
-          />
-          {errors.reason && <span className="error-message">{errors.reason}</span>}
-        </div>
+          <div className="form-group">
+            <label htmlFor="appointmentDate">
+              Appointment Date <span className="required">*</span>
+            </label>
+            <input
+              type="date"
+              id="appointmentDate"
+              value={appointmentDate}
+              onChange={(e) => {
+                setAppointmentDate(e.target.value)
+                setErrors({ ...errors, appointmentDate: '' })
+              }}
+              className={errors.appointmentDate ? 'error' : ''}
+            />
+            {errors.appointmentDate && <span className="error-message">{errors.appointmentDate}</span>}
+          </div>
 
-        <div className="form-actions">
-          <button type="submit" className="submit-button">
-            Book Appointment
-          </button>
-          <Link to={`/doctors/${id}`} className="cancel-button">
-            Cancel
-          </Link>
+          <div className="form-group">
+            <label htmlFor="appointmentTime">
+              Appointment Time <span className="required">*</span>
+            </label>
+            <input
+              type="time"
+              id="appointmentTime"
+              value={appointmentTime}
+              onChange={(e) => {
+                setAppointmentTime(e.target.value)
+                setErrors({ ...errors, appointmentTime: '' })
+              }}
+              className={errors.appointmentTime ? 'error' : ''}
+            />
+            {errors.appointmentTime && <span className="error-message">{errors.appointmentTime}</span>}
+          </div>
+
+          <div className="form-group">
+            <label htmlFor="reason">
+              Reason for Visit <span className="required">*</span>
+            </label>
+            <textarea
+              id="reason"
+              value={reason}
+              onChange={(e) => {
+                setReason(e.target.value)
+                setErrors({ ...errors, reason: '' })
+              }}
+              rows={4}
+              placeholder="Please describe the reason for your visit"
+              className={errors.reason ? 'error' : ''}
+            />
+            {errors.reason && <span className="error-message">{errors.reason}</span>}
+          </div>
+
+          <div className="form-actions">
+            <button type="submit" className="submit-button">
+              Confirm Appointment
+            </button>
+            <Link to={`/doctors/${id}`} className="cancel-button">
+              Cancel
+            </Link>
+          </div>
+          </form>
         </div>
-      </form>
+      </div>
     </div>
   )
 }
