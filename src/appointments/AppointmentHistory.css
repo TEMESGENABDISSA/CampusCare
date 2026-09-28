@@ -1,13 +1,13 @@
 .appointment-history {
-  padding: 48px 20px;
+  padding: var(--space-2xl) var(--space-lg);
 }
 
 .history-heading {
   font-size: 40px;
-  margin: 0 0 32px 0;
-  color: var(--text-h);
+  margin: 0 0 var(--space-xl) 0;
+  color: var(--text-primary);
   text-align: center;
-  font-weight: 600;
+  font-weight: 700;
   @media (max-width: 768px) {
     font-size: 32px;
   }
@@ -15,12 +15,13 @@
 
 .no-appointments {
   font-size: 18px;
-  color: var(--text);
+  color: var(--text-secondary);
   text-align: center;
-  margin: 60px 0;
-  padding: 24px;
-  background: var(--code-bg);
-  border-radius: 8px;
+  margin: var(--space-3xl) 0;
+  padding: var(--space-xl);
+  background: var(--bg-card);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-light);
 }
 
 .appointments-list {
@@ -28,44 +29,46 @@
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: var(--space-lg);
 }
 
 .appointment-card {
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 24px;
-  background: var(--bg);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-xl);
+  padding: var(--space-xl);
+  background: var(--bg-card);
   transition: all 0.2s ease;
+  box-shadow: var(--shadow);
 }
 
 .appointment-card:hover {
-  box-shadow: var(--shadow);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
 }
 
 .appointment-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 20px;
-  padding-bottom: 16px;
-  border-bottom: 1px solid var(--border);
+  margin-bottom: var(--space-lg);
+  padding-bottom: var(--space-md);
+  border-bottom: 1px solid var(--border-light);
 }
 
 .doctor-name {
   font-size: 24px;
   margin: 0;
-  color: var(--text-h);
-  font-weight: 600;
+  color: var(--text-primary);
+  font-weight: 700;
 }
 
 .appointment-status {
-  font-size: 13px;
-  padding: 6px 12px;
-  border-radius: 12px;
-  background: #c6f6d5;
-  color: #276749;
-  font-weight: 600;
+  font-size: 12px;
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--radius-full);
+  background: var(--success-bg);
+  color: var(--success);
+  font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
@@ -73,7 +76,7 @@
 .appointment-details {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 16px;
+  gap: var(--space-md);
 }
 
 .detail-item {
@@ -83,17 +86,17 @@
 }
 
 .detail-label {
-  font-size: 13px;
-  color: var(--text);
-  font-weight: 500;
+  font-size: 12px;
+  color: var(--text-secondary);
+  font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
 
 .detail-value {
   font-size: 15px;
-  color: var(--text-h);
-  font-weight: 600;
+  color: var(--text-primary);
+  font-weight: 700;
 }
 
 @media (max-width: 600px) {

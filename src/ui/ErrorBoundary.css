@@ -4,27 +4,31 @@
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  padding: 20px;
+  padding: var(--space-lg);
   text-align: center;
 }
 
 .error-heading {
   font-size: 32px;
-  margin: 0 0 24px 0;
-  color: var(--text-h);
+  margin: 0 0 var(--space-lg) 0;
+  color: var(--text-primary);
+  font-weight: 700;
 }
 
 .reload-button {
   font-size: 16px;
-  padding: 12px 32px;
-  border-radius: 6px;
-  color: var(--bg);
-  background: var(--text-h);
+  font-weight: 600;
+  padding: var(--space-md) var(--space-xl);
+  border-radius: var(--radius-lg);
+  color: var(--bg-card);
+  background: var(--primary);
   border: none;
   cursor: pointer;
-  transition: opacity 0.2s;
+  transition: all 0.2s ease;
 }
 
 .reload-button:hover {
-  opacity: 0.8;
+  background: var(--primary-dark);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
 }

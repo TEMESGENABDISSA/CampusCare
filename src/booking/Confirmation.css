@@ -1,14 +1,14 @@
 .confirmation {
-  padding: 48px 20px;
+  padding: var(--space-2xl) var(--space-lg);
 }
 
 .confirmation-card {
   max-width: 500px;
   margin: 0 auto;
-  padding: 48px;
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  background: var(--bg);
+  padding: var(--space-2xl);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-xl);
+  background: var(--bg-card);
   text-align: center;
   box-shadow: var(--shadow-lg);
 }
@@ -16,22 +16,22 @@
 .success-icon {
   width: 80px;
   height: 80px;
-  margin: 0 auto 24px;
-  border-radius: 50%;
-  background: #38a169;
+  margin: 0 auto var(--space-xl);
+  border-radius: var(--radius-full);
+  background: var(--success);
   color: white;
   font-size: 48px;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: var(--shadow);
+  box-shadow: var(--shadow-md);
 }
 
 .confirmation-heading {
   font-size: 32px;
-  margin: 0 0 12px 0;
-  color: var(--text-h);
-  font-weight: 600;
+  margin: 0 0 var(--space-md) 0;
+  color: var(--text-primary);
+  font-weight: 700;
   @media (max-width: 768px) {
     font-size: 28px;
   }
@@ -39,31 +39,32 @@
 
 .confirmation-message {
   font-size: 18px;
-  margin: 0 0 32px 0;
-  color: var(--text);
+  margin: 0 0 var(--space-xl) 0;
+  color: var(--text-secondary);
   line-height: 1.5;
 }
 
 .appointment-details {
   text-align: left;
-  margin-bottom: 32px;
-  padding: 24px;
-  background: var(--code-bg);
-  border-radius: 12px;
+  margin-bottom: var(--space-xl);
+  padding: var(--space-lg);
+  background: var(--bg-body);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-light);
 }
 
 .details-heading {
   font-size: 18px;
-  margin: 0 0 16px 0;
-  color: var(--text-h);
-  font-weight: 600;
+  margin: 0 0 var(--space-md) 0;
+  color: var(--text-primary);
+  font-weight: 700;
 }
 
 .detail-row {
   display: flex;
   justify-content: space-between;
-  padding: 12px 0;
-  border-bottom: 1px solid var(--border);
+  padding: var(--space-md) 0;
+  border-bottom: 1px solid var(--border-light);
 }
 
 .detail-row:last-child {
@@ -71,65 +72,78 @@
 }
 
 .detail-label {
-  font-weight: 500;
-  color: var(--text);
-  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 .detail-value {
-  font-weight: 600;
-  color: var(--text-h);
+  font-weight: 700;
+  color: var(--text-primary);
   font-size: 15px;
 }
 
 .confirmation-actions {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: var(--space-md);
 }
 
 .view-appointments-button,
 .home-button {
   font-size: 16px;
-  font-weight: 500;
-  padding: 14px 32px;
-  border-radius: 8px;
+  font-weight: 600;
+  padding: var(--space-md) var(--space-xl);
+  border-radius: var(--radius-lg);
   text-decoration: none;
   text-align: center;
   transition: all 0.2s ease;
 }
 
 .view-appointments-button {
-  color: var(--bg);
-  background: var(--accent);
+  color: var(--bg-card);
+  background: var(--primary);
 }
 
 .view-appointments-button:hover {
-  background: #2c5282;
-  transform: translateY(-1px);
+  background: var(--primary-dark);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
 }
 
 .home-button {
-  color: var(--text);
-  background: var(--code-bg);
+  color: var(--text-secondary);
+  background: var(--bg-body);
+  border: 1px solid var(--border);
 }
 
 .home-button:hover {
-  background: #e2e8f0;
+  background: var(--border-light);
 }
 
 .error-message {
   font-size: 18px;
-  color: var(--text);
+  color: var(--text-secondary);
   text-align: center;
-  margin: 60px 0;
+  margin: var(--space-3xl) 0;
+  padding: var(--space-xl);
+  background: var(--bg-card);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-light);
 }
 
 .home-link {
   display: block;
   font-size: 16px;
-  color: var(--accent);
+  color: var(--primary);
   text-decoration: none;
   text-align: center;
-  margin-top: 20px;
+  margin-top: var(--space-lg);
+  font-weight: 600;
+}
+
+.home-link:hover {
+  text-decoration: underline;
 }
