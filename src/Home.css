@@ -1,4 +1,4 @@
-.app {
+.home {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -7,23 +7,37 @@
   text-align: center;
 }
 
-.title {
+.home-title {
   font-size: 64px;
   margin: 0 0 20px 0;
   color: var(--text-h);
 }
 
-.subtitle {
+.home-subtitle {
   font-size: 28px;
   margin: 0 0 30px 0;
   color: var(--text);
   font-weight: 400;
 }
 
-.description {
+.home-description {
   font-size: 18px;
   max-width: 600px;
-  margin: 0;
+  margin: 0 0 40px 0;
   color: var(--text);
   line-height: 1.6;
+}
+
+.home-button {
+  font-size: 16px;
+  padding: 12px 32px;
+  border-radius: 6px;
+  color: var(--bg);
+  background: var(--text-h);
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+
+.home-button:hover {
+  opacity: 0.8;
 }
