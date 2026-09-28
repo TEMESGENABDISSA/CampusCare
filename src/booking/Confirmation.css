@@ -1,0 +1,123 @@
+.confirmation {
+  padding: 40px 20px;
+}
+
+.confirmation-card {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 40px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--bg);
+  text-align: center;
+}
+
+.success-icon {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 24px;
+  border-radius: 50%;
+  background: #22c55e;
+  color: white;
+  font-size: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.confirmation-heading {
+  font-size: 32px;
+  margin: 0 0 16px 0;
+  color: var(--text-h);
+}
+
+.confirmation-message {
+  font-size: 18px;
+  margin: 0 0 32px 0;
+  color: var(--text);
+}
+
+.appointment-details {
+  text-align: left;
+  margin-bottom: 32px;
+  padding: 24px;
+  background: var(--code-bg);
+  border-radius: 8px;
+}
+
+.details-heading {
+  font-size: 20px;
+  margin: 0 0 20px 0;
+  color: var(--text-h);
+}
+
+.detail-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.detail-row:last-child {
+  border-bottom: none;
+}
+
+.detail-label {
+  font-weight: 500;
+  color: var(--text);
+}
+
+.detail-value {
+  font-weight: 500;
+  color: var(--text-h);
+}
+
+.confirmation-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.view-appointments-button,
+.home-button {
+  font-size: 16px;
+  padding: 12px 32px;
+  border-radius: 6px;
+  text-decoration: none;
+  text-align: center;
+  transition: opacity 0.2s;
+}
+
+.view-appointments-button {
+  color: var(--bg);
+  background: var(--text-h);
+}
+
+.view-appointments-button:hover {
+  opacity: 0.8;
+}
+
+.home-button {
+  color: var(--text);
+  background: var(--code-bg);
+}
+
+.home-button:hover {
+  opacity: 0.8;
+}
+
+.error-message {
+  font-size: 18px;
+  color: var(--text);
+  text-align: center;
+  margin: 60px 0;
+}
+
+.home-link {
+  display: block;
+  font-size: 16px;
+  color: var(--accent);
+  text-decoration: none;
+  text-align: center;
+  margin-top: 20px;
+}

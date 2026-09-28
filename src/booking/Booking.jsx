@@ -1,10 +1,13 @@
 import { useState } from 'react'
-import { useParams, Link } from 'react-router-dom'
+import { useParams, Link, useNavigate } from 'react-router-dom'
 import { doctors } from '../api/doctors'
+import { useAppointments } from '../appointments/AppointmentContext'
 import './Booking.css'
 
 function Booking() {
   const { id } = useParams()
+  const navigate = useNavigate()
+  const { addAppointment } = useAppointments()
   const doctor = doctors.find(d => d.id === parseInt(id))
 
   const [fullName, setFullName] = useState('')
@@ -62,16 +65,22 @@ function Booking() {
     e.preventDefault()
 
     if (validateForm()) {
-      // Form submission will be implemented later
-      console.log('Form submitted:', {
-        doctorId: id,
-        fullName,
+      const appointment = {
+        id: Date.now(),
+        doctorId: parseInt(id),
+        doctorName: doctor.name,
+        studentName: fullName,
         email,
         phoneNumber,
         appointmentDate,
         appointmentTime,
-        reason
-      })
+        reason,
+        createdAt: new Date().toISOString()
+      }
+
+      addAppointment(appointment)
+
+      navigate('/confirmation', { state: { appointment } })
     }
   }
 

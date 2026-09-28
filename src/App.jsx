@@ -4,6 +4,7 @@ import Home from './Home'
 import Doctors from './doctors/Doctors'
 import DoctorDetail from './doctors/DoctorDetail'
 import Booking from './booking/Booking'
+import Confirmation from './booking/Confirmation'
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Route path="/doctors" element={<Doctors />} />
         <Route path="/doctors/:id" element={<DoctorDetail />} />
         <Route path="/doctors/:id/book" element={<Booking />} />
+        <Route path="/confirmation" element={<Confirmation />} />
       </Routes>
     </Layout>
   )
