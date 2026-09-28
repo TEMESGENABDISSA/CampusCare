@@ -6,7 +6,8 @@ function DepartmentFilter({ selectedDepartment, onDepartmentChange }) {
     'Cardiology',
     'Dentistry',
     'Pediatrics',
-    'General Medicine'
+    'General Medicine',
+    'Neurology' // Temporary: for testing empty state (no doctors in this department)
   ]
 
   return (

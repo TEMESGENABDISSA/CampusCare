@@ -8,3 +8,10 @@
   color: var(--text-h);
   text-align: center;
 }
+
+.state-message {
+  font-size: 18px;
+  color: var(--text);
+  text-align: center;
+  margin: 40px 0;
+}
