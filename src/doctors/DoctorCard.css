@@ -1,0 +1,60 @@
+.doctor-card {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 20px;
+  text-align: center;
+  background: var(--bg);
+  transition: box-shadow 0.2s;
+}
+
+.doctor-card:hover {
+  box-shadow: var(--shadow);
+}
+
+.doctor-image {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 16px;
+}
+
+.doctor-name {
+  font-size: 20px;
+  margin: 0 0 8px 0;
+  color: var(--text-h);
+}
+
+.doctor-department {
+  font-size: 14px;
+  margin: 0 0 4px 0;
+  color: var(--accent);
+  font-weight: 500;
+}
+
+.doctor-specialty {
+  font-size: 14px;
+  margin: 0 0 8px 0;
+  color: var(--text);
+}
+
+.doctor-experience {
+  font-size: 14px;
+  margin: 0 0 16px 0;
+  color: var(--text);
+}
+
+.view-profile-button {
+  display: inline-block;
+  font-size: 14px;
+  padding: 8px 16px;
+  border-radius: 4px;
+  color: var(--bg);
+  background: var(--text-h);
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+
+.view-profile-button:hover {
+  opacity: 0.8;
+}
