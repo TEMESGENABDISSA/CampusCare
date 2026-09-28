@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from 'react'
+import { createContext, useContext, useState, useEffect } from 'react'
 
 const AppointmentContext = createContext()
 
@@ -13,8 +13,18 @@ export function useAppointments() {
 export function AppointmentProvider({ children }) {
   const [appointments, setAppointments] = useState([])
 
+  // Load appointments from localStorage on mount
+  useEffect(() => {
+    const storedAppointments = localStorage.getItem('campuscare_appointments')
+    if (storedAppointments) {
+      setAppointments(JSON.parse(storedAppointments))
+    }
+  }, [])
+
   const addAppointment = (appointment) => {
-    setAppointments([...appointments, appointment])
+    const updatedAppointments = [...appointments, appointment]
+    setAppointments(updatedAppointments)
+    localStorage.setItem('campuscare_appointments', JSON.stringify(updatedAppointments))
   }
 
   return (
