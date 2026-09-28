@@ -1,0 +1,10 @@
+.doctors-page {
+  padding: 40px 20px;
+}
+
+.doctors-heading {
+  font-size: 48px;
+  margin: 0 0 40px 0;
+  color: var(--text-h);
+  text-align: center;
+}
