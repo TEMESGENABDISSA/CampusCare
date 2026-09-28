@@ -9,8 +9,7 @@ function Doctors() {
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(false)
 
-  // Simulate loading - remove this when implementing real API
-  // To test error state, change setError(true) below
+  // Simulate loading - remove this useEffect when implementing real API
   useEffect(() => {
     const timer = setTimeout(() => {
       setLoading(false)
@@ -22,9 +21,6 @@ function Doctors() {
   const filteredDoctors = selectedDepartment === 'All Departments'
     ? doctors
     : doctors.filter(doctor => doctor.department === selectedDepartment)
-
-  // To test empty state, click "Neurology" in the filter (no doctors in this department)
-  // Remove "Neurology" from DepartmentFilter.jsx when done testing
 
   if (loading) {
     return (
