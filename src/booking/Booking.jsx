@@ -14,18 +14,65 @@ function Booking() {
   const [appointmentTime, setAppointmentTime] = useState('')
   const [reason, setReason] = useState('')
 
+  const [errors, setErrors] = useState({
+    fullName: '',
+    email: '',
+    phoneNumber: '',
+    appointmentDate: '',
+    appointmentTime: '',
+    reason: ''
+  })
+
+  const validateForm = () => {
+    const newErrors = {}
+
+    if (!fullName.trim()) {
+      newErrors.fullName = 'Full name is required'
+    }
+
+    if (!email.trim()) {
+      newErrors.email = 'Email is required'
+    } else if (!/\S+@\S+\.\S+/.test(email)) {
+      newErrors.email = 'Please enter a valid email'
+    }
+
+    if (!phoneNumber.trim()) {
+      newErrors.phoneNumber = 'Phone number is required'
+    } else if (!/^\d{10,}$/.test(phoneNumber.replace(/\D/g, ''))) {
+      newErrors.phoneNumber = 'Please enter a valid phone number (at least 10 digits)'
+    }
+
+    if (!appointmentDate) {
+      newErrors.appointmentDate = 'Appointment date is required'
+    }
+
+    if (!appointmentTime) {
+      newErrors.appointmentTime = 'Appointment time is required'
+    }
+
+    if (!reason.trim()) {
+      newErrors.reason = 'Reason for visit is required'
+    }
+
+    setErrors(newErrors)
+    return Object.keys(newErrors).length === 0
+  }
+
   const handleSubmit = (e) => {
     e.preventDefault()
-    // Form submission will be implemented later
-    console.log('Form submitted:', {
-      doctorId: id,
-      fullName,
-      email,
-      phoneNumber,
-      appointmentDate,
-      appointmentTime,
-      reason
-    })
+
+    if (validateForm()) {
+      // Form submission will be implemented later
+      console.log('Form submitted:', {
+        doctorId: id,
+        fullName,
+        email,
+        phoneNumber,
+        appointmentDate,
+        appointmentTime,
+        reason
+      })
+    }
   }
 
   if (!doctor) {
@@ -48,9 +95,13 @@ function Booking() {
             type="text"
             id="fullName"
             value={fullName}
-            onChange={(e) => setFullName(e.target.value)}
-            required
+            onChange={(e) => {
+              setFullName(e.target.value)
+              setErrors({ ...errors, fullName: '' })
+            }}
+            className={errors.fullName ? 'error' : ''}
           />
+          {errors.fullName && <span className="error-message">{errors.fullName}</span>}
         </div>
 
         <div className="form-group">
@@ -59,9 +110,13 @@ function Booking() {
             type="email"
             id="email"
             value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
+            onChange={(e) => {
+              setEmail(e.target.value)
+              setErrors({ ...errors, email: '' })
+            }}
+            className={errors.email ? 'error' : ''}
           />
+          {errors.email && <span className="error-message">{errors.email}</span>}
         </div>
 
         <div className="form-group">
@@ -70,9 +125,13 @@ function Booking() {
             type="tel"
             id="phoneNumber"
             value={phoneNumber}
-            onChange={(e) => setPhoneNumber(e.target.value)}
-            required
+            onChange={(e) => {
+              setPhoneNumber(e.target.value)
+              setErrors({ ...errors, phoneNumber: '' })
+            }}
+            className={errors.phoneNumber ? 'error' : ''}
           />
+          {errors.phoneNumber && <span className="error-message">{errors.phoneNumber}</span>}
         </div>
 
         <div className="form-group">
@@ -81,9 +140,13 @@ function Booking() {
             type="date"
             id="appointmentDate"
             value={appointmentDate}
-            onChange={(e) => setAppointmentDate(e.target.value)}
-            required
+            onChange={(e) => {
+              setAppointmentDate(e.target.value)
+              setErrors({ ...errors, appointmentDate: '' })
+            }}
+            className={errors.appointmentDate ? 'error' : ''}
           />
+          {errors.appointmentDate && <span className="error-message">{errors.appointmentDate}</span>}
         </div>
 
         <div className="form-group">
@@ -92,9 +155,13 @@ function Booking() {
             type="time"
             id="appointmentTime"
             value={appointmentTime}
-            onChange={(e) => setAppointmentTime(e.target.value)}
-            required
+            onChange={(e) => {
+              setAppointmentTime(e.target.value)
+              setErrors({ ...errors, appointmentTime: '' })
+            }}
+            className={errors.appointmentTime ? 'error' : ''}
           />
+          {errors.appointmentTime && <span className="error-message">{errors.appointmentTime}</span>}
         </div>
 
         <div className="form-group">
@@ -102,10 +169,14 @@ function Booking() {
           <textarea
             id="reason"
             value={reason}
-            onChange={(e) => setReason(e.target.value)}
+            onChange={(e) => {
+              setReason(e.target.value)
+              setErrors({ ...errors, reason: '' })
+            }}
             rows={4}
-            required
+            className={errors.reason ? 'error' : ''}
           />
+          {errors.reason && <span className="error-message">{errors.reason}</span>}
         </div>
 
         <div className="form-actions">

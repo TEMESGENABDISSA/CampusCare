@@ -46,10 +46,27 @@
   font-family: inherit;
 }
 
+.form-group input.error,
+.form-group textarea.error {
+  border-color: #dc2626;
+}
+
 .form-group input:focus,
 .form-group textarea:focus {
   outline: 2px solid var(--accent);
   outline-offset: 2px;
+}
+
+.form-group input.error:focus,
+.form-group textarea.error:focus {
+  outline-color: #dc2626;
+}
+
+.error-message {
+  display: block;
+  font-size: 14px;
+  color: #dc2626;
+  margin-top: 6px;
 }
 
 .form-group textarea {
