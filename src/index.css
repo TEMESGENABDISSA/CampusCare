@@ -119,3 +119,10 @@ code {
   padding: 4px 8px;
   background: var(--code-bg);
 }
+
+.loading {
+  font-size: 18px;
+  color: var(--text);
+  text-align: center;
+  padding: 60px 20px;
+}

@@ -1,13 +1,15 @@
 import { Routes, Route } from 'react-router-dom'
+import { lazy, Suspense } from 'react'
 import Layout from './Layout'
 import Home from './Home'
 import Doctors from './doctors/Doctors'
 import DoctorDetail from './doctors/DoctorDetail'
 import Booking from './booking/Booking'
 import Confirmation from './booking/Confirmation'
-import AppointmentHistory from './appointments/AppointmentHistory'
 import SignIn from './auth/SignIn'
 import RequireAuth from './auth/RequireAuth'
+
+const AppointmentHistory = lazy(() => import('./appointments/AppointmentHistory'))
 
 function App() {
   return (
@@ -24,7 +26,9 @@ function App() {
         <Route path="/confirmation" element={<Confirmation />} />
         <Route path="/appointments" element={
           <RequireAuth>
-            <AppointmentHistory />
+            <Suspense fallback={<div className="loading">Loading appointment history...</div>}>
+              <AppointmentHistory />
+            </Suspense>
           </RequireAuth>
         } />
         <Route path="/signin" element={<SignIn />} />
