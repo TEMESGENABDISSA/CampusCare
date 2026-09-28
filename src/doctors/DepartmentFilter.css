@@ -2,27 +2,30 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 12px;
-  margin-bottom: 32px;
+  gap: 10px;
+  margin-bottom: 40px;
 }
 
 .filter-button {
   font-size: 14px;
+  font-weight: 500;
   padding: 10px 20px;
   border-radius: 20px;
   color: var(--text);
   background: var(--code-bg);
   border: 2px solid transparent;
   cursor: pointer;
-  transition: all 0.2s;
+  transition: all 0.2s ease;
 }
 
 .filter-button:hover {
   border-color: var(--accent);
+  background: var(--accent-bg);
 }
 
 .filter-button.active {
   color: var(--bg);
   background: var(--accent);
   border-color: var(--accent);
+  box-shadow: var(--shadow);
 }

@@ -1,15 +1,16 @@
 .confirmation {
-  padding: 40px 20px;
+  padding: 48px 20px;
 }
 
 .confirmation-card {
   max-width: 500px;
   margin: 0 auto;
-  padding: 40px;
+  padding: 48px;
   border: 1px solid var(--border);
-  border-radius: 12px;
+  border-radius: 16px;
   background: var(--bg);
   text-align: center;
+  box-shadow: var(--shadow-lg);
 }
 
 .success-icon {
@@ -17,24 +18,30 @@
   height: 80px;
   margin: 0 auto 24px;
   border-radius: 50%;
-  background: #22c55e;
+  background: #38a169;
   color: white;
   font-size: 48px;
   display: flex;
   align-items: center;
   justify-content: center;
+  box-shadow: var(--shadow);
 }
 
 .confirmation-heading {
   font-size: 32px;
-  margin: 0 0 16px 0;
+  margin: 0 0 12px 0;
   color: var(--text-h);
+  font-weight: 600;
+  @media (max-width: 768px) {
+    font-size: 28px;
+  }
 }
 
 .confirmation-message {
   font-size: 18px;
   margin: 0 0 32px 0;
   color: var(--text);
+  line-height: 1.5;
 }
 
 .appointment-details {
@@ -42,13 +49,14 @@
   margin-bottom: 32px;
   padding: 24px;
   background: var(--code-bg);
-  border-radius: 8px;
+  border-radius: 12px;
 }
 
 .details-heading {
-  font-size: 20px;
-  margin: 0 0 20px 0;
+  font-size: 18px;
+  margin: 0 0 16px 0;
   color: var(--text-h);
+  font-weight: 600;
 }
 
 .detail-row {
@@ -65,11 +73,13 @@
 .detail-label {
   font-weight: 500;
   color: var(--text);
+  font-size: 14px;
 }
 
 .detail-value {
-  font-weight: 500;
+  font-weight: 600;
   color: var(--text-h);
+  font-size: 15px;
 }
 
 .confirmation-actions {
@@ -81,20 +91,22 @@
 .view-appointments-button,
 .home-button {
   font-size: 16px;
-  padding: 12px 32px;
-  border-radius: 6px;
+  font-weight: 500;
+  padding: 14px 32px;
+  border-radius: 8px;
   text-decoration: none;
   text-align: center;
-  transition: opacity 0.2s;
+  transition: all 0.2s ease;
 }
 
 .view-appointments-button {
   color: var(--bg);
-  background: var(--text-h);
+  background: var(--accent);
 }
 
 .view-appointments-button:hover {
-  opacity: 0.8;
+  background: #2c5282;
+  transform: translateY(-1px);
 }
 
 .home-button {
@@ -103,7 +115,7 @@
 }
 
 .home-button:hover {
-  opacity: 0.8;
+  background: #e2e8f0;
 }
 
 .error-message {

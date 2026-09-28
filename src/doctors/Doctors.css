@@ -1,17 +1,24 @@
 .doctors-page {
-  padding: 40px 20px;
+  padding: 48px 20px;
 }
 
 .doctors-heading {
-  font-size: 48px;
-  margin: 0 0 40px 0;
+  font-size: 40px;
+  margin: 0 0 32px 0;
   color: var(--text-h);
   text-align: center;
+  font-weight: 600;
+  @media (max-width: 768px) {
+    font-size: 32px;
+  }
 }
 
 .state-message {
   font-size: 18px;
   color: var(--text);
   text-align: center;
-  margin: 40px 0;
+  margin: 60px 0;
+  padding: 24px;
+  background: var(--code-bg);
+  border-radius: 8px;
 }

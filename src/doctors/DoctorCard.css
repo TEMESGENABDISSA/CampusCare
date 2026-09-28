@@ -1,60 +1,69 @@
 .doctor-card {
   border: 1px solid var(--border);
-  border-radius: 8px;
-  padding: 20px;
+  border-radius: 12px;
+  padding: 24px;
   text-align: center;
   background: var(--bg);
-  transition: box-shadow 0.2s;
+  transition: all 0.2s ease;
 }
 
 .doctor-card:hover {
-  box-shadow: var(--shadow);
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-2px);
+  border-color: var(--accent);
 }
 
 .doctor-image {
-  width: 120px;
-  height: 120px;
+  width: 128px;
+  height: 128px;
   border-radius: 50%;
   object-fit: cover;
-  margin-bottom: 16px;
+  margin-bottom: 20px;
+  border: 3px solid var(--code-bg);
 }
 
 .doctor-name {
   font-size: 20px;
   margin: 0 0 8px 0;
   color: var(--text-h);
+  font-weight: 600;
 }
 
 .doctor-department {
   font-size: 14px;
-  margin: 0 0 4px 0;
+  margin: 0 0 6px 0;
   color: var(--accent);
-  font-weight: 500;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 .doctor-specialty {
-  font-size: 14px;
+  font-size: 15px;
   margin: 0 0 8px 0;
   color: var(--text);
+  line-height: 1.4;
 }
 
 .doctor-experience {
   font-size: 14px;
-  margin: 0 0 16px 0;
+  margin: 0 0 20px 0;
   color: var(--text);
 }
 
 .view-profile-button {
   display: inline-block;
   font-size: 14px;
-  padding: 8px 16px;
-  border-radius: 4px;
+  font-weight: 500;
+  padding: 10px 20px;
+  border-radius: 6px;
   color: var(--bg);
-  background: var(--text-h);
+  background: var(--accent);
   text-decoration: none;
-  transition: opacity 0.2s;
+  transition: all 0.2s ease;
 }
 
 .view-profile-button:hover {
-  opacity: 0.8;
+  background: #2c5282;
+  transform: translateY(-1px);
 }

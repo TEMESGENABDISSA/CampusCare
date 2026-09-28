@@ -2,10 +2,15 @@
   background-color: var(--bg);
   border-bottom: 1px solid var(--border);
   padding: 16px 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
 }
 
 .navbar-container {
-  max-width: 1126px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
   display: flex;
@@ -15,9 +20,10 @@
 
 .navbar-brand {
   font-size: 24px;
-  font-weight: 600;
-  color: var(--text-h);
+  font-weight: 700;
+  color: var(--accent);
   text-decoration: none;
+  letter-spacing: -0.5px;
 }
 
 .navbar-links {
@@ -25,16 +31,23 @@
   list-style: none;
   margin: 0;
   padding: 0;
-  gap: 32px;
+  gap: 24px;
+  @media (max-width: 640px) {
+    gap: 16px;
+  }
+  @media (max-width: 480px) {
+    gap: 12px;
+  }
 }
 
 .navbar-links a {
   color: var(--text);
   text-decoration: none;
-  font-size: 16px;
-  transition: color 0.2s;
+  font-size: 15px;
+  font-weight: 500;
+  transition: color 0.2s ease;
 }
 
 .navbar-links a:hover {
-  color: var(--text-h);
+  color: var(--accent);
 }
