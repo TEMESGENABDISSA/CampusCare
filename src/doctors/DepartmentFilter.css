@@ -1,0 +1,28 @@
+.department-filter {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 32px;
+}
+
+.filter-button {
+  font-size: 14px;
+  padding: 10px 20px;
+  border-radius: 20px;
+  color: var(--text);
+  background: var(--code-bg);
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.filter-button:hover {
+  border-color: var(--accent);
+}
+
+.filter-button.active {
+  color: var(--bg);
+  background: var(--accent);
+  border-color: var(--accent);
+}
