@@ -3,7 +3,6 @@
   flex-wrap: wrap;
   justify-content: center;
   gap: var(--space-sm);
-  margin-bottom: var(--space-xl);
 }
 
 .filter-button {

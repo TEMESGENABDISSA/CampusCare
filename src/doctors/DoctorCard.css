@@ -1,11 +1,12 @@
 .doctor-card {
   border: 1px solid var(--border-light);
   border-radius: var(--radius-xl);
-  padding: var(--space-xl);
+  padding: 0;
   text-align: center;
   background: var(--bg-card);
   transition: all 0.2s ease;
   box-shadow: var(--shadow);
+  overflow: hidden;
 }
 
 .doctor-card:hover {
@@ -14,21 +15,59 @@
   border-color: var(--primary-light);
 }
 
+.doctor-image-container {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1;
+  overflow: hidden;
+  background: var(--bg-body);
+}
+
 .doctor-image {
-  width: 128px;
-  height: 128px;
-  border-radius: var(--radius-full);
+  width: 100%;
+  height: 100%;
   object-fit: cover;
-  margin-bottom: var(--space-lg);
-  border: 4px solid var(--bg-body);
-  box-shadow: var(--shadow-md);
+}
+
+.availability-badge {
+  position: absolute;
+  top: var(--space-md);
+  right: var(--space-md);
+  background: var(--bg-card);
+  border-radius: var(--radius-full);
+  padding: var(--space-xs) var(--space-sm);
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  box-shadow: var(--shadow-sm);
+}
+
+.availability-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: var(--radius-full);
+  background: var(--success);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
 }
 
 .doctor-name {
   font-size: 20px;
-  margin: 0 0 var(--space-sm) 0;
+  margin: var(--space-lg) 0 var(--space-sm) 0;
   color: var(--text-primary);
   font-weight: 700;
+  padding: 0 var(--space-md);
 }
 
 .doctor-department {
@@ -38,6 +77,7 @@
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.5px;
+  padding: 0 var(--space-md);
 }
 
 .doctor-specialty {
@@ -45,12 +85,14 @@
   margin: 0 0 var(--space-sm) 0;
   color: var(--text-secondary);
   line-height: 1.4;
+  padding: 0 var(--space-md);
 }
 
 .doctor-experience {
   font-size: 14px;
   margin: 0 0 var(--space-lg) 0;
   color: var(--text-muted);
+  padding: 0 var(--space-md);
 }
 
 .view-profile-button {
@@ -63,6 +105,7 @@
   background: var(--primary);
   text-decoration: none;
   transition: all 0.2s ease;
+  margin-bottom: var(--space-xl);
 }
 
 .view-profile-button:hover {

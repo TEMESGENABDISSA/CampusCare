@@ -22,11 +22,23 @@ function Doctors() {
     ? doctors
     : doctors.filter(doctor => doctor.department === selectedDepartment)
 
+  const handleClearFilter = () => {
+    setSelectedDepartment('All Departments')
+  }
+
   if (loading) {
     return (
       <div className="doctors-page">
-        <h1 className="doctors-heading">Find a Doctor</h1>
-        <p className="state-message">Loading doctors...</p>
+        <div className="doctors-header">
+          <h1 className="doctors-heading">Find the Right Doctor</h1>
+          <p className="doctors-subtitle">
+            Browse our campus clinic specialists and choose a doctor who fits your needs.
+          </p>
+        </div>
+        <div className="state-message loading-state">
+          <div className="loading-spinner"></div>
+          <p>Loading doctors...</p>
+        </div>
       </div>
     )
   }
@@ -34,33 +46,67 @@ function Doctors() {
   if (error) {
     return (
       <div className="doctors-page">
-        <h1 className="doctors-heading">Find a Doctor</h1>
-        <p className="state-message">Unable to load doctors.</p>
-      </div>
-    )
-  }
-
-  if (filteredDoctors.length === 0) {
-    return (
-      <div className="doctors-page">
-        <h1 className="doctors-heading">Find a Doctor</h1>
-        <DepartmentFilter
-          selectedDepartment={selectedDepartment}
-          onDepartmentChange={setSelectedDepartment}
-        />
-        <p className="state-message">No doctors found.</p>
+        <div className="doctors-header">
+          <h1 className="doctors-heading">Find the Right Doctor</h1>
+          <p className="doctors-subtitle">
+            Browse our campus clinic specialists and choose a doctor who fits your needs.
+          </p>
+        </div>
+        <div className="state-message error-state">
+          <div className="error-icon">⚠️</div>
+          <p>Unable to load doctors. Please try again later.</p>
+        </div>
       </div>
     )
   }
 
   return (
     <div className="doctors-page">
-      <h1 className="doctors-heading">Find a Doctor</h1>
-      <DepartmentFilter
-        selectedDepartment={selectedDepartment}
-        onDepartmentChange={setSelectedDepartment}
-      />
-      <DoctorList doctors={filteredDoctors} />
+      <div className="doctors-header">
+        <h1 className="doctors-heading">Find the Right Doctor</h1>
+        <p className="doctors-subtitle">
+          Browse our campus clinic specialists and choose a doctor who fits your needs.
+        </p>
+      </div>
+
+      <div className="doctors-filter-section">
+        <DepartmentFilter
+          selectedDepartment={selectedDepartment}
+          onDepartmentChange={setSelectedDepartment}
+        />
+        {selectedDepartment !== 'All Departments' && (
+          <button 
+            className="clear-filter-button"
+            onClick={handleClearFilter}
+          >
+            Clear Filter
+          </button>
+        )}
+      </div>
+
+      {filteredDoctors.length === 0 ? (
+        <div className="empty-state">
+          <div className="empty-icon">🔍</div>
+          <h3 className="empty-title">No Doctors Found</h3>
+          <p className="empty-description">
+            No doctors are available in the {selectedDepartment} department.
+            Try selecting a different department or clear the filter.
+          </p>
+          <button 
+            className="empty-action-button"
+            onClick={handleClearFilter}
+          >
+            Clear Filter
+          </button>
+        </div>
+      ) : (
+        <>
+          <div className="results-indicator">
+            {filteredDoctors.length} doctor{filteredDoctors.length !== 1 ? 's' : ''} available
+          </div>
+          <DoctorList doctors={filteredDoctors} />
+        </>
+      )}
     </div>
   )
 }

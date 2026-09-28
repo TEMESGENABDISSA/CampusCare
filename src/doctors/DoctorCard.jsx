@@ -4,11 +4,17 @@ import './DoctorCard.css'
 function DoctorCard({ doctor }) {
   return (
     <div className="doctor-card">
-      <img
-        src={doctor.image}
-        alt={doctor.name}
-        className="doctor-image"
-      />
+      <div className="doctor-image-container">
+        <img
+          src={doctor.image}
+          alt={doctor.name}
+          className="doctor-image"
+        />
+        <div className="availability-badge">
+          <span className="availability-dot"></span>
+          Available
+        </div>
+      </div>
       <h3 className="doctor-name">{doctor.name}</h3>
       <p className="doctor-department">{doctor.department}</p>
       <p className="doctor-specialty">{doctor.specialty}</p>
