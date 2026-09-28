@@ -3,6 +3,7 @@ import Layout from './Layout'
 import Home from './Home'
 import Doctors from './doctors/Doctors'
 import DoctorDetail from './doctors/DoctorDetail'
+import Booking from './booking/Booking'
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/doctors" element={<Doctors />} />
         <Route path="/doctors/:id" element={<DoctorDetail />} />
+        <Route path="/doctors/:id/book" element={<Booking />} />
       </Routes>
     </Layout>
   )
